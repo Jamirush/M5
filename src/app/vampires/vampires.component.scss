@@ -1,0 +1,19 @@
+@import './../../styles.scss';
+
+.container{
+  .container-1{
+    padding-top: 725px;
+    border-bottom: solid 1px $c-texte;
+    height: 100PX;
+    .col-12{
+      width: 1320px;
+      height: 1321px;
+      background: url("../../assets/images/pexels-alex-powell-1769342\ \(1\).jpg");
+      background-size: 1320px auto;
+      display: inline-block;
+      position: relative;
+      opacity: 0.25;
+      top: -1325px;
+    }
+  }
+}

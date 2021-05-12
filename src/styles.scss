@@ -1,58 +1,92 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+section{
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
-// breakpoints map
-$breakpoints: (
-  xs: 32rem,
-  sm: 48rem,
-  md: 72rem,
-  lg: 96rem,
-  xl: 102rem,
-  xx: 120rem
-);
+$c-base: #0c020f;
+$c-texte: #E5E2E5;
+$c-link: #BA1FE1;
+$c-link-dark: #631377;
 
-// media query mixin
-@mixin break($size) {
-  @media (min-width: map-get($breakpoints, $size)) {
-    @content;
+@font-face {
+  font-family: 'beth_ellen_2regular';
+  src: url("./assets/fonts/Beth-Ellen/beth-ellen-2.0-webfont.woff2") format("woff2"),
+       url("./assets/fonts/Beth-Ellen/beth-ellen-2.0-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: $c-base;
+  color: $c-texte;
+}
+.content {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.container{
+  .container{
+    float: left;
+    position: absolute;
   }
 }
 
-// number of columns variable
-$items: 12;
-
-// grid container.
-.grid {
-  color:#343434;
-  display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 1rem;
-}
-
-// grid item
-.grow {
-  padding: 0.5rem;
-
-  &:nth-child(even) {
-    background-color: #fff;
-  }
-
-  &:nth-child(odd) {
-    background-color: #fff;
-  }
-}
-
-// loop over the breakpoints
-@each $key, $value in $breakpoints {
-  @for $i from 1 through $items {
-    .grow-#{$key}-#{$i} {
-      flex: 0 0 100%;
-      @include break($key) {
-        flex: 0 0 #{$i / $items * 100%};
-      }
+.links{
+  padding-left: 170px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: left;
+  display: block;
+  div{
+    padding-top: 15px;
+    border-bottom: $c-texte 1px solid;
+    i{
+      font-size: 18px;
+      float:right;
+      color:$c-link;
     }
   }
+}
+
+.r-link{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+  border-bottom: $c-texte 1px solid;
+  i{
+    font-size: 18px;
+    float:right;
+    color:$c-link;
+  }
+}
+
+.l-link{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+  text-align: right;
+  border-bottom: $c-texte 1px solid;
+  i{
+    font-size: 18px;
+    float:left;
+    color:$c-link;
+  }
+}
+
+.sepia{
+  filter: sepia(50%) contrast(150%) saturate(200%) brightness(100%) hue-rotate(-15deg);
+}
+.cold{
+  filter: hue-rotate(180deg) sepia(75%) contrast(150%) saturate(300%) hue-rotate(180deg);
+}
+.tint-green{
+  filter: hue-rotate(-30deg) sepia(75%) contrast(150%) saturate(300%) hue-rotate(30deg);
+}
+.tint-magenta{
+  filter: hue-rotate(-270deg) sepia(55%) contrast(150%) saturate(300%) hue-rotate(270deg);
 }

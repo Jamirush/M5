@@ -1,0 +1,43 @@
+@import "../vampires/vampires.component.scss";
+
+.card{
+
+  background-color: $c-base;
+  border-radius: 4px;
+  border: solid 1px $c-link;
+  img{
+    width: 131px;
+  }
+}
+
+.ventru{
+  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.toreador, .tremere{
+  margin-top: 130px;
+}
+.nosferatu, .malkevien{
+  margin-top: -90px;
+}
+.nosferatu{
+  margin-left: 90px;
+}
+.malkevien{
+  margin-right: 90px;
+}
+
+.brutja, .gangrel{
+  margin-top: -135px;
+  margin-bottom: 20px;
+}
+.caitif{
+  margin-top: -115px;
+  margin-left: 70px;
+  margin-right: 70px;
+
+}
+
+

@@ -1,0 +1,66 @@
+@import './../../styles.scss';
+
+.bg-home{
+  z-index: 0;
+  position: absolute;
+  width: 1132px;
+  height: 821px;
+  background: url("../../assets/images/pexels-cottonbro-7792720.jpg");
+  background-repeat: no-repeat;
+  background-size: 1132px auto;
+  background-position: 0 -400px;
+  -webkit-filter: sepia(60%);
+	filter: sepia(60%);
+}
+
+.ltexte{
+  position: relative;
+  top:550px;
+  left: -100px;
+  font-family: beth_ellen_2regular;
+  line-height: 35px;
+  width: 400px;
+	filter: none;
+}
+
+.rtexte{
+  top:100px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  align-items: center;
+  text-align: right;
+
+  p{
+    padding: 5px;
+  }
+}
+
+.links{
+  padding-left: 220px;
+  width: 32%;
+  max-width: 580px;
+  top:600px;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  display: flex;
+  text-align: left;
+  display: block;
+
+  div{
+
+    cursor: pointer;
+    padding-top: 15px;
+    border-bottom: $c-texte 1px solid;
+
+    i{
+      font-size: 18px;
+      float:right;
+      color:$c-link;
+    }
+  }
+}
+
