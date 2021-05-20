@@ -1,22 +1,34 @@
 <div class="container">
+  <div class="d-flex justify-content-evenly bd-highlight">
+    <div class="p-1 bd-highlight sept-1" [ngClass]="{'step-completed' : vampire.clan != null }">Clan</div>
+    <div class="p-1 bd-highlight sept-2" [ngClass]="{'step-completed' : showAttributes != false }">Sire</div>
+    <div class="p-1 bd-highlight sept-3">Attributs</div>
+    <div class="p-1 bd-highlight sept-4">Compétences</div>
+    <div class="p-1 bd-highlight sept-5">Disciplines</div>
+    <div class="p-1 bd-highlight sept-6">Prédateur</div>
+    <div class="p-1 bd-highlight sept-7">Aventages</div>
+    <div class="p-1 bd-highlight sept-8">Conviction et attaches</div>
+    <div class="p-1 bd-highlight sept-9">Brumes du temps</div>
+  </div>
   <div class="container container-1">
     <div class="col-12"></div>
   </div>
-  <div class="container container-2">
+
+  <div [style.display]="!vampire.clan ? 'block' : 'none'" class="container container-2">
     <div class="d-flex justify-content-center">
-      <div class="card tremere">
+      <div class="card tremere" (click)='setClan("Tremere")'>
         <img src="../../assets/images/pexels-dima-valkov-5686649.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Tremere</h5>
         </div>
       </div>
-      <div class="card ventru">
+      <div class="card ventru" (click)='setClan("Ventru")'>
         <img src="../../assets/images/pexels-kamaji-ogino-5065599.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Ventru</h5>
         </div>
       </div>
-      <div class="card toreador">
+      <div class="card toreador" (click)='setClan("Toréador")'>
         <img src="../../assets/images/pexels-tubarones-photography-4654181.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Toreador</h5>
@@ -24,13 +36,13 @@
       </div>
     </div>
     <div class="d-flex justify-content-between">
-      <div class="card nosferatu">
+      <div class="card nosferatu" (click)='setClan("Nosferatu")'>
         <img src="../../assets/images/pexels-clement-percheron-5755479.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Nosferatu</h5>
         </div>
       </div>
-      <div class="card malkevien">
+      <div class="card malkevien" (click)='setClan("Malkevien")'>
         <img src="../../assets/images/pexels-thaís-falcão-3144121.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Malkevian</h5>
@@ -38,19 +50,19 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <div class="card brutja">
+      <div class="card brutja" (click)='setClan("Brutja")'>
         <img src="../../assets/images/pexels-fotografierende-6228258.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Brutja</h5>
         </div>
       </div>
-      <div class="card caitif">
+      <div class="card caitif" (click)='setClan("Caïtif")'>
         <img src="../../assets/images/pexels-joanne-adela-low-3225796.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Caïtif</h5>
         </div>
       </div>
-      <div class="card gangrel">
+      <div class="card gangrel" (click)='setClan("Gangrel")'>
         <img src="../../assets/images/pexels-harrison-haines-3536247.jpg" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">Gangrel</h5>
@@ -59,4 +71,94 @@
 
     </div>
   </div>
+
+  <div [style.display]="vampire.clan && showAttributes == false ? 'block' : 'none'" class="container container-3">
+<div class="row link">
+    <div class="col-4 offset-md-2">
+
+      <button class="btn btn-sm btn-outline-info" (click)='setClan("")'>← Clan</button>
+    </div>
+    <div class="col-4 float-end">
+      <button class="btn btn-sm btn-outline-info float-end" (click)='setShowAttributes(true)'>Attributs →</button>
+    </div>
+  </div>
+    <div class="col-8 offset-md-2 sir justify-content-center">
+
+      <div class="row justify-content-center">
+        <div class="col-3"><label>Nom</label><br/><input [(ngModel)] = "vampire.name" autocomplete="off" /></div>
+        <div class="col-3"><label>Concept</label><br/><input [(ngModel)]= 'vampire.concept' autocomplete="off" /></div>
+        <div class="col-3"><label>Prédateur</label><br/><input [(ngModel)]= 'vampire.predator' autocomplete="off"/></div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-3"><label>Chronique</label><br/><input [(ngModel)]= 'vampire.chronic' autocomplete="off"/></div>
+        <div class="col-3"><label>Ambition</label><br/><input [(ngModel)]= 'vampire.ambition' autocomplete="off"/></div>
+        <div class="col-3"><label class="readonly">Clan</label><br/><input readonly value={{vampire.clan}} /></div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-3"><label>Sire</label><br/><input [(ngModel)]= 'vampire.sire' autocomplete="off"/></div>
+        <div class="col-3"><label>Désir</label><br/><input [(ngModel)]= 'vampire.desire'  autocomplete="off"/></div>
+        <div class="col-3"><label class="readonly">Génération</label><br/><input readonly [(ngModel)]= 'vampire.generation' /></div>
+      </div>
+  </div>
+</div>
+
+
+<div [style.display]=" showAttributes == true ? 'block' : 'none'" class="container container-4">
+  <div class="row link">
+      <div class="col-4 offset-md-2">
+
+        <button class="btn btn-sm btn-outline-info" (click)='setShowAttributes(false)'>← Sire</button>
+      </div>
+      <div class="col-4 float-end">
+        <button class="btn btn-sm btn-outline-info float-end" (click)='setShowCompetences(true)'>Compétences →</button>
+      </div>
+    </div>
+      <div class="col-8 offset-md-2 attributs">
+        <h3>Attributs</h3>
+        <div *ng-For="let attribut of attributes" class="row justify-content-center">
+          <div class="col-3 bButtom"><label>{{attribut.name}}}</label><br />
+            <span class="circle dot-auto"></span>
+            <span [ngClass]="{'dot-check' : getAttributValue(attribut.comName1) > 1 }" class="circle" (click)='setAttribut(attribut.comName1, 2)'></span>
+            <span [ngClass]="{'dot-check' : getAttributValue(attribut.comName1) > 2 }" class="circle" (click)='setAttribut(attribut.comName1, 3)'></span>
+            <span [ngClass]="{'dot-check' : getAttributValue(attribut.comName1) > 3 }" class="circle" (click)='setAttribut(attribut.comName1, 4)'></span>
+            <span [ngClass]="{'dot-check' : getAttributValue(attribut.comName1) > 4 }" class="circle" (click)='setAttribut(attribut.comName1, 5)'></span>
+          </div>
+          <div class="col-3 bButtom"><label>Charisme</label><br />
+            <span class="circle dot-auto"></span>
+            <span [ngClass]="{'dot-check' : vampire.charisma > 1 }" class="circle" (click)='setAttribut("charisma", 2)'></span>
+            <span [ngClass]="{'dot-check' : vampire.charisma > 2 }" class="circle" (click)='setAttribut("charisma", 3)'></span>
+            <span [ngClass]="{'dot-check' : vampire.charisma > 3 }" class="circle" (click)='setAttribut("charisma", 4)'></span>
+            <span [ngClass]="{'dot-check' : vampire.charisma > 4 }" class="circle" (click)='setAttribut("charisma", 5)'></span>
+          </div>
+          <div class="col-3 bButtom"><label>Intelligence</label><br />
+            <span class="circle dot-auto"></span>
+            <span [ngClass]="{'dot-check' : vampire.intelligence > 1 }" class="circle" (click)='setAttribut("intelligence", 2)'></span>
+            <span [ngClass]="{'dot-check' : vampire.intelligence > 2 }" class="circle" (click)='setAttribut("intelligence", 3)'></span>
+            <span [ngClass]="{'dot-check' : vampire.intelligence > 3 }" class="circle" (click)='setAttribut("intelligence", 4)'></span>
+            <span [ngClass]="{'dot-check' : vampire.intelligence > 4 }" class="circle" (click)='setAttribut("intelligence", 5)'></span>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+<div class="informations">
+  <div class="col-12">{{this.vampire.clan}}</div>
+  <div class="col-12"> showAttributes : {{this.showAttributes}}</div>
+  <div class="col-12">showCompetences : {{this.showCompetences}}</div>
+  <div class="col-12">showDisciplines : {{this.showDisciplines}}</div>
+  <div class="col-12">showPredator : {{this.showPredator}}</div>
+  <div class="col-12">showAvantages : {{this.showAvantages}}</div>
+  <div class="col-12">showConvictionAndTies : {{this.showConvictionAndTies}}</div>
+  <div class="col-12">showMistsOfTime : {{this.showMistsOfTime}}</div>
 </div>

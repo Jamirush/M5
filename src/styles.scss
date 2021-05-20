@@ -7,6 +7,7 @@ $c-base: #0c020f;
 $c-texte: #E5E2E5;
 $c-link: #BA1FE1;
 $c-link-dark: #631377;
+$c-readonly: #45e01e;
 
 @font-face {
   font-family: 'beth_ellen_2regular';
@@ -89,4 +90,26 @@ html, body {
 }
 .tint-magenta{
   filter: hue-rotate(-270deg) sepia(55%) contrast(150%) saturate(300%) hue-rotate(270deg);
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid $c-link;
+  display: inline-block;
+  margin-right: 5px;
+  --bs-gutter-x:0px;
+}
+
+.bButtom{
+  margin-right: 5px;
+  border-bottom: $c-texte solid 1px;
+}
+.dot-check{
+  background-color: $c-link-dark;
+}
+.dot-auto{
+  background-color: darken($c-link-dark, 10);
+  border-bottom: $c-link-dark solid 1px;
 }

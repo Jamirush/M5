@@ -1,13 +1,15 @@
-@import "../vampires/vampires.component.scss";
+@import '../vampires/vampires.component.scss';
 
 .card{
-
   background-color: $c-base;
   border-radius: 4px;
   border: solid 1px $c-link;
   img{
     width: 131px;
   }
+}
+.step-completed{
+  color: $c-link;
 }
 
 .ventru{
@@ -35,9 +37,56 @@
 }
 .caitif{
   margin-top: -115px;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 110px;
+  margin-right:110px;
 
 }
+.informations{
+  padding-top: 745px;
+}
+
+.link{
+  padding-top: 100px;
+  .btn{
+    width: 120px;
+    color: $c-link;
+    border-color: $c-link-dark;
+  }
+  .btn:hover{
+    background-color: $c-link-dark;
+  }
+}
+.sir{
+  border: solid 1px $c-texte;
+  height: 300px;
+  margin-top: 10px;
+
+}
+.attributs{
+  border: solid 1px $c-texte;
+  height: 300px;
+  margin-top: 10px;
+
+}
+  .row{
+    margin-top: 30px;
+    .readonly{
+      color: darken($c-texte, 20);
+    }
+    input{
+      color: $c-texte;
+      background-color: transparent;
+      border-top:none;
+      border-right:none;
+      border-left:none;
+    }
+
+    input:read-only {
+      color:$c-readonly;
+      }
+    }
+    input:focus-visible {
+      border:none;
+      }
 
 
